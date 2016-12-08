@@ -85,13 +85,13 @@ module.exports = function (platform, destinationApp) {
                         'nativescript-dev-webpack/tns-aot-loader'
                     ]
                 },
-                //{
-                    //test: /nativescript-intl.*\.js$/,
-                    //loader: 'babel-loader',
-                    //query: {
-                        //presets: ['es2015']
-                    //}
-                //},
+                {
+                    test: /nativescript-intl.*\.js$/,
+                    loader: 'babel-loader',
+                    query: {
+                        presets: ['es2015']
+                    }
+                },
                 // SASS support
                 {
                     test: /\.scss$/,
@@ -134,18 +134,18 @@ module.exports = function (platform, destinationApp) {
                 entryModule: 'app/app.module#AppModule',
                 typeChecking: false
             }),
-            //new webpack.optimize.UglifyJsPlugin({
-                //mangle: false,
-                ////compress: false,
-                //beautify: true,
-                //compress: {
-                    //warnings: false
-                //},
-                //output: {
-                    //comments: false
-                //},
-                //sourceMap: false
-            //}),
+            new webpack.optimize.UglifyJsPlugin({
+                mangle: false,
+                //compress: false,
+                beautify: true,
+                compress: {
+                    warnings: false
+                },
+                output: {
+                    comments: false
+                },
+                sourceMap: false
+            }),
 
         ],
     };
